@@ -9,7 +9,7 @@ from database import Base
 class Cohort(Base):
     __tablename__ = 'cohort'
     id = Column(SmallInteger, primary_key=True, autoincrement=True)
-    name = Column(String(32), nullable=False)
+    name = Column(String(64), nullable=False)
     nickname = Column(String(16), nullable=False)
     duration = Column(SmallInteger, nullable=False)
     start_date = Column(Date, nullable=False)
@@ -22,7 +22,7 @@ class Cohort(Base):
         if type(name) is not str:
             raise TypeError
 
-        if len(name) > 32:
+        if len(name) > 64:
             raise ValueError
 
         return name
